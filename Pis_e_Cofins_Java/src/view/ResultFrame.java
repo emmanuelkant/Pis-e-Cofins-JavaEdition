@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 import controller.Calculations;
 
 /**
- * Classe que listar· os resultados.
+ * Classe que listar√° os resultados.
  * 
  * @author Emmanuel Kant
  */
@@ -27,20 +27,20 @@ public class ResultFrame extends JDialog {
 	 *            Passando a classe principal para ser colocada no
 	 *            setLocationRelativeTo().
 	 * @param revenueOld
-	 *            Receita posta pelo usu·rio.
+	 *            Receita posta pelo usu√°rio.
 	 */
 	public ResultFrame(MainFrame mainFrame, String revenue) {
 		build(mainFrame, revenue);
 	}
 
 	/**
-	 * MÈtodo que constrÛi a dialog.
+	 * M√©todo que constr√≥i a dialog.
 	 * 
 	 * @param mainFrame
 	 *            Passando a classe principal para ser colocada no
 	 *            setLocationRelativeTo().
 	 * @param revenue
-	 *            Receita posta pelo usu·rio, agora j· com o (.) e n„o mais (,).
+	 *            Receita posta pelo usu√°rio, agora j√° com o (.) e n√£o mais (,).
 	 */
 	private void build(MainFrame mainFrame, String revenue) {
 		buildComponets(revenue);
@@ -55,10 +55,10 @@ public class ResultFrame extends JDialog {
 	}
 
 	/**
-	 * MÈtodo que constrÛi e coloca os componente na frame.
+	 * M√©todo que constr√≥i e coloca os componente na frame.
 	 * 
 	 * @param revenue
-	 *            Receita para ser calculada pelos mÈtodos.
+	 *            Receita para ser calculada pelos m√©todos.
 	 */
 	private void buildComponets(String revenue) {
 		JPanel panel = new JPanel(new GridBagLayout());
@@ -67,8 +67,8 @@ public class ResultFrame extends JDialog {
 		buildCofinsSpace(revenue, panel);
 		buildCsslSpace(revenue, panel);
 		buildIrpjSpace(revenue, panel);
-		// … preciso criar um JTextField da Base de Calculo pois o sistema usar·
-		// provisoriamente como parametro de outro mÈtodo.
+		// √â preciso criar um JTextField da Base de Calculo pois o sistema usar√°
+		// provisoriamente como parametro de outro m√©todo.
 		JTextField bcField = buildBcSpace(revenue, panel);
 		buildIpaField(panel, bcField);
 		buildBackButton(panel);
@@ -82,15 +82,15 @@ public class ResultFrame extends JDialog {
 	}
 
 	/**
-	 * MÈtodo que constrÛi o label e o text field do Imposto Adicional (IPA).
+	 * M√©todo que constr√≥i o label e o text field do Imposto Adicional (IPA).
 	 * 
 	 * @param panel
-	 *            Componente para a inserÁ„o dos objetos criados.
+	 *            Componente para a inser√ß√£o dos objetos criados.
 	 * @param bcField
-	 *            O valor armazenado no field da Base de C·lculo.
+	 *            O valor armazenado no field da Base de C√°lculo.
 	 */
 	private void buildIpaField(JPanel panel, JTextField bcField) {
-		if (Float.parseFloat(bcField.getText()) >= 20000.00) {
+		if (Float.parseFloat(bcField.getText().replace(",", ".") >= 20000.00) {
 			JLabel ipaLabel = new JLabel("Imposto Adicional:");
 			panel.add(ipaLabel, new GBC(0, 6).left().insets(0, 5, 0, 5));
 			JTextField ipaField = new JTextField(15);
@@ -101,16 +101,16 @@ public class ResultFrame extends JDialog {
 	}
 
 	/**
-	 * MÈtodo que constrÛi o label e o text field da Base de Calculo (BC).
+	 * M√©todo que constr√≥i o label e o text field da Base de Calculo (BC).
 	 * 
 	 * @param revenue
-	 *            Receita to usu·rio.
+	 *            Receita to usu√°rio.
 	 * @param panel
-	 *            Componente para a inserÁ„o dos objetos criados.
+	 *            Componente para a inser√ß√£o dos objetos criados.
 	 * @return Somente o field da base de calculo com o valor nele.
 	 */
 	private JTextField buildBcSpace(String revenue, JPanel panel) {
-		JLabel bcLabel = new JLabel("Base de Calc˙lo:");
+		JLabel bcLabel = new JLabel("Base de Calc√∫lo:");
 		panel.add(bcLabel, new GBC(0, 5).left().insets(0, 5, 0, 5));
 		JTextField bcField = new JTextField(15);
 		bcField.setEditable(false);
@@ -120,13 +120,13 @@ public class ResultFrame extends JDialog {
 	}
 
 	/**
-	 * MÈtodo que constrÛi o label e o text field da Imposto de Renda de Pessoa
+	 * M√©todo que constr√≥i o label e o text field da Imposto de Renda de Pessoa
 	 * Juridica (IRPJ).
 	 * 
 	 * @param revenue
-	 *            Receita to usu·rio.
+	 *            Receita to usu√°rio.
 	 * @param panel
-	 *            Componente para a inserÁ„o dos objetos criados.
+	 *            Componente para a inser√ß√£o dos objetos criados.
 	 */
 	private void buildIrpjSpace(String revenue, JPanel panel) {
 		JLabel irpjLabel = new JLabel("Irpj:");
@@ -138,13 +138,13 @@ public class ResultFrame extends JDialog {
 	}
 
 	/**
-	 * MÈtodo que constrÛi o label e o text field da ContribuiÁ„o Social Sobre
+	 * M√©todo que constr√≥i o label e o text field da Contribui√ß√£o Social Sobre
 	 * Lucro (CSSL).
 	 * 
 	 * @param revenue
-	 *            Receita to usu·rio.
+	 *            Receita to usu√°rio.
 	 * @param panel
-	 *            Componente para a inserÁ„o dos objetos criados.
+	 *            Componente para a inser√ß√£o dos objetos criados.
 	 */
 	private void buildCsslSpace(String revenue, JPanel panel) {
 		JLabel csslLabel = new JLabel("Cssl:");
@@ -156,13 +156,13 @@ public class ResultFrame extends JDialog {
 	}
 
 	/**
-	 * MÈtodo que constrÛi o label e o text field da ContribuiÁ„o para o
+	 * M√©todo que constr√≥i o label e o text field da Contribui√ß√£o para o
 	 * Financiamento da Seguridade Social (Cofins).
 	 * 
 	 * @param revenue
-	 *            Receita to usu·rio.
+	 *            Receita to usu√°rio.
 	 * @param panel
-	 *            Componente para a inserÁ„o dos objetos criados.
+	 *            Componente para a inser√ß√£o dos objetos criados.
 	 */
 	private void buildCofinsSpace(String revenue, JPanel panel) {
 		JLabel cofinsLabel = new JLabel("Cofins:");
@@ -174,13 +174,13 @@ public class ResultFrame extends JDialog {
 	}
 
 	/**
-	 * MÈtodo que constrÛi o label e o text field da Programa de IntegraÁ„o
+	 * M√©todo que constr√≥i o label e o text field da Programa de Integra√ß√£o
 	 * Social (PIS).
 	 * 
 	 * @param revenue
-	 *            Receita to usu·rio.
+	 *            Receita to usu√°rio.
 	 * @param panel
-	 *            Componente para a inserÁ„o dos objetos criados.
+	 *            Componente para a inser√ß√£o dos objetos criados.
 	 */
 	private void buildPisSpace(String revenue, JPanel panel) {
 		JLabel pisLabel = new JLabel("Pis:");
@@ -192,10 +192,10 @@ public class ResultFrame extends JDialog {
 	}
 
 	/**
-	 * MÈtodo que cria o bot„o de voltar.
+	 * M√©todo que cria o bot√£o de voltar.
 	 * 
 	 * @param panel
-	 *            Parametro referenciado dentro do mÈtodo
+	 *            Parametro referenciado dentro do m√©todo
 	 */
 	private void buildBackButton(JPanel panel) {
 		JButton backButton = new JButton("Voltar");
